@@ -3,6 +3,7 @@ import XCTest
 
 final class GridTest: XCTestCase {
     private enum Constants {
+        static let halfX: CGFloat = 2
         static let oneX: CGFloat = 4
         static let twoX: CGFloat = 8
         static let threeX: CGFloat = 12
@@ -18,6 +19,8 @@ final class GridTest: XCTestCase {
     }
 
     func test_GridValuesAreCorrect() {
+        XCTAssertEqual(Constants.halfX, Grid.xhalf)
+
         XCTAssertEqual(Constants.oneX, Grid.x1)
         XCTAssertEqual(Constants.twoX, Grid.x2)
         XCTAssertEqual(Constants.threeX, Grid.x3)

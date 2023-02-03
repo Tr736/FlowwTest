@@ -1,13 +1,8 @@
 
+
 import Foundation
-protocol MarketDetailsViewDataProviderType: ObservableObject {
-    var marketItem: MarketResponse { get }
-    var chartDataPublisher: Published<[MarketChartData]>.Publisher { get }
+final class MockMarketDetailsViewDataProvider: MarketDetailsViewDataProviderType {
 
-    func getChartData() async throws
-}
-
-final class MarketDetailsViewDataProvider: MarketDetailsViewDataProviderType {
     private let api: APIType
     let marketItem: MarketResponse
     @Published var chartData: [MarketChartData] = []
@@ -15,7 +10,7 @@ final class MarketDetailsViewDataProvider: MarketDetailsViewDataProviderType {
         $chartData
     }
 
-    init(api: APIType = ConcreteAPI(),
+    init(api: APIType = MockAPI(),
          marketItem: MarketResponse) {
         self.marketItem = marketItem
         self.api = api
@@ -25,17 +20,17 @@ final class MarketDetailsViewDataProvider: MarketDetailsViewDataProviderType {
         let request = MarketChartRequest(id: marketItem.id)
 
         let response = try await api.execute(apiRequest: request)
-        await convertToDateAndPrice(response)
+        convertToDateAndPrice(response)
     }
 
-    @MainActor
     func convertToDateAndPrice(_ response: MarketChartResponse) {
         var marketChartData = [MarketChartData]()
         for (idx, element) in response.prices.enumerated() {
-            let date = Calendar.current.date(byAdding: .day, value: -365 + idx, to: Date())
+            let date = Calendar.current.date(byAdding: .day, value: -idx, to: Date())
             let price = element.last
             marketChartData.append(MarketChartData(date: date, price: price))
         }
         self.chartData = marketChartData
     }
+
 }
