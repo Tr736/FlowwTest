@@ -18,15 +18,3 @@ final class MarketsDataProvider: MarketsDataProviderType {
         return try await api.execute(apiRequest: request)
     }
 }
-
-final class MockMarketsDataProvider: MarketsDataProviderType {
-    let api: APIType
-
-    init(api: APIType = MockAPI()) {
-        self.api = api
-    }
-
-    func getMarketsList() async throws -> [MarketResponse] {
-        []
-    }
-}

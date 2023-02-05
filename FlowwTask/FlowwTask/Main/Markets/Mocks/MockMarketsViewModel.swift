@@ -1,24 +1,17 @@
-import Foundation
-protocol MarketsViewModelType: ObservableObject {
-    var errorPublisher: Published<Error?>.Publisher { get }
-    var marketsPublisher: Published<[String: MarketResponse]>.Publisher { get }
-
-    var dataProvider: any MarketsDataProviderType { get }
-    func getMarketsList()
-}
-
-final class MarketsViewModel: MarketsViewModelType {
+import SwiftUI
+import Combine
+final class MockMarketsViewModel: MarketsViewModelType {
     //MARK: Error Handling
     @Published var error: Error?
     var errorPublisher: Published<Error?>.Publisher {
         $error
     }
-
     //MARK: Data observer
     var marketsPublisher: Published<[String: MarketResponse]>.Publisher {
         $marketResponse
     }
     @Published private var marketResponse: [String: MarketResponse] = [:]
+
 
     let dataProvider: any MarketsDataProviderType
 
@@ -30,12 +23,9 @@ final class MarketsViewModel: MarketsViewModelType {
         Task {
             do {
                 let request = try await dataProvider.getMarketsList()
-                await MainActor.run(body: {
-                    request.forEach {  response in
-                        self.marketResponse[response.id] = response
-                    }
-                })
-
+                request.forEach { response in
+                    self.marketResponse[response.id] = response
+                }
             } catch {
                 await MainActor.run(body: {
                     self.error = error

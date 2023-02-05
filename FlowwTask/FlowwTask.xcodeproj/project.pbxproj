@@ -20,6 +20,8 @@
 		78CAF70B298D25B6002BE165 /* MarketChartDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAF70A298D25B6002BE165 /* MarketChartDataTests.swift */; };
 		78CAF70E298D2718002BE165 /* MarketChartRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAF70D298D2718002BE165 /* MarketChartRequestTest.swift */; };
 		78CAF711298D281B002BE165 /* MockMarketDetailsViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAF710298D281B002BE165 /* MockMarketDetailsViewDataProvider.swift */; };
+		78CAF714298D2BB1002BE165 /* MockMarketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAF713298D2BB1002BE165 /* MockMarketsViewModel.swift */; };
+		78CAF716298D2BD9002BE165 /* MockMarketsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAF715298D2BD9002BE165 /* MockMarketsDataProvider.swift */; };
 		78FC0350298BCA9600953A35 /* FlowwTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FC034F298BCA9600953A35 /* FlowwTaskApp.swift */; };
 		78FC0354298BCA9800953A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78FC0353298BCA9800953A35 /* Assets.xcassets */; };
 		78FC0357298BCA9800953A35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78FC0356298BCA9800953A35 /* Preview Assets.xcassets */; };
@@ -85,6 +87,8 @@
 		78CAF70A298D25B6002BE165 /* MarketChartDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChartDataTests.swift; sourceTree = "<group>"; };
 		78CAF70D298D2718002BE165 /* MarketChartRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChartRequestTest.swift; sourceTree = "<group>"; };
 		78CAF710298D281B002BE165 /* MockMarketDetailsViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMarketDetailsViewDataProvider.swift; sourceTree = "<group>"; };
+		78CAF713298D2BB1002BE165 /* MockMarketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMarketsViewModel.swift; sourceTree = "<group>"; };
+		78CAF715298D2BD9002BE165 /* MockMarketsDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMarketsDataProvider.swift; sourceTree = "<group>"; };
 		78FC034C298BCA9600953A35 /* FlowwTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowwTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FC034F298BCA9600953A35 /* FlowwTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowwTaskApp.swift; sourceTree = "<group>"; };
 		78FC0353298BCA9800953A35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,6 +217,15 @@
 			isa = PBXGroup;
 			children = (
 				78CAF710298D281B002BE165 /* MockMarketDetailsViewDataProvider.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		78CAF712298D2BA5002BE165 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				78CAF713298D2BB1002BE165 /* MockMarketsViewModel.swift */,
+				78CAF715298D2BD9002BE165 /* MockMarketsDataProvider.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -391,6 +404,7 @@
 		78FC03A2298BCF5000953A35 /* Markets */ = {
 			isa = PBXGroup;
 			children = (
+				78CAF712298D2BA5002BE165 /* Mocks */,
 				78FC03AF298BE23300953A35 /* Cell */,
 				78FC03A5298BD36A00953A35 /* Network */,
 				78FC03A3298BCF6800953A35 /* MarketsView.swift */,
@@ -591,6 +605,7 @@
 				78FC03AC298BE1DD00953A35 /* MarketsViewModel.swift in Sources */,
 				78FC03AA298BE1B100953A35 /* MarketsDataProvider.swift in Sources */,
 				78FC0394298BCD3700953A35 /* Headers.swift in Sources */,
+				78CAF714298D2BB1002BE165 /* MockMarketsViewModel.swift in Sources */,
 				78FC039F298BCDD500953A35 /* AppContext.swift in Sources */,
 				78FC03C3298C1ED700953A35 /* MarketDetailsViewModel.swift in Sources */,
 				78FC0350298BCA9600953A35 /* FlowwTaskApp.swift in Sources */,
@@ -610,6 +625,7 @@
 				78FC03BC298BFA3D00953A35 /* MarketDetails.swift in Sources */,
 				78FC039A298BCD8A00953A35 /* Endpoints.swift in Sources */,
 				78FC0398298BCD6400953A35 /* ConcreteAPI.swift in Sources */,
+				78CAF716298D2BD9002BE165 /* MockMarketsDataProvider.swift in Sources */,
 				78FC039D298BCDB200953A35 /* Reachability.swift in Sources */,
 				78FC03C1298C1EAF00953A35 /* MarketChartRequest.swift in Sources */,
 				78FC03A1298BCDF400953A35 /* URLSession+.swift in Sources */,
